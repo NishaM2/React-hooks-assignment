@@ -3,17 +3,24 @@ import React, { useState, useMemo } from 'react';
 // You need to calculate the total amount of money you spent
 
 export const Assignment3 = () => {
+    // eslint-disable-next-line no-unused-vars
     const [items, setItems] = useState([
         { name: 'Chocolates', value: 10 },
-        { name: 'Chips', value: 20 },
-        { name: 'Onion', value: 30 },
+        { name: 'Chips',  value: 20 },
+        { name: 'Onion',  value: 30 },
         { name: 'Tomato', value: 30 },
-        // Add more items as needed
+        { name: 'Potato', value: 20 },
+        { name: 'apple',  value: 50 }
     ]);
 
-    // Your code starts here
-    const totalValue = 0;
-    // Your code ends here
+    const totalValue = useMemo(() => {
+        let value = 0;
+        items.forEach(item => {
+            value += item.value;
+        });
+        return value;
+    },[items])
+
     return (
         <div>
             <ul>
